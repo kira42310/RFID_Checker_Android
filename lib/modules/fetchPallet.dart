@@ -10,6 +10,7 @@ class Pallet
   final String tagID;
   // final int locID;
   final int lotID;
+  final String name;
   final int quantity;
   final String state;
 
@@ -19,6 +20,7 @@ class Pallet
     required this.tagID,
     // required this.locID,
     required this.lotID,
+    required this.name,
     required this.quantity,
     required this.state,
   });
@@ -30,6 +32,7 @@ class Pallet
       tagID: json[ 'tagID' ],
       // locID: json[ 'loc_warehouse_id' ],
       lotID: json[ 'lot_product_id' ],
+      name: json[ 'name' ],
       quantity: json[ 'quantity' ],
       state: json[ 'state' ],
     );

@@ -199,7 +199,8 @@ class _Checkout extends State<Checkout>
         builder: ( BuildContext context ) => 
           FutureProgressDialog( fetchPallet( rfidTxtctl.text ) )
       );
-      productNameTxtctl.text = listProduct[ pallet!.lotID - 1 ];
+      // productNameTxtctl.text = listProduct[ pallet!.lotID - 1 ];
+      productNameTxtctl.text = pallet!.name;
       productCQuantityTxtctl.text = pallet!.quantity.toString();
     });
   }
