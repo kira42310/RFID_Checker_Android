@@ -145,7 +145,8 @@ class _Checkout extends State<Checkout>
           children: <Widget>[
             Expanded(
               flex: 14,
-              child: ( eModeSwitch ) ? productSelectorEMode() : TextField(
+              // child: ( eModeSwitch ) ? productSelectorEMode() : TextField(
+              child: TextField(
                 controller: productNameTxtctl,
                 textAlign: TextAlign.right,
                 decoration: InputDecoration(
