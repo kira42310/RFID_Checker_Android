@@ -504,12 +504,12 @@ class _Checkout extends State<Checkout>
     onPressed: () => showDialog(
       context: context, 
       builder: ( BuildContext context ) => AlertDialog(
-        title: Text('test'),
-        content: Text('test'),
+        title: Text('เบิกสินค้าจาก ' + productNameTxtctl.text ),
+        content: Text('จำนวน ' + productNameTxtctl.text ),
         actions: [
           TextButton(
-            onPressed: () => Navigator.pop( context, 'Cancel' ), 
-            child: Text('Cancel')
+            onPressed: () => Navigator.pop( context, 'ยกเลิก' ), 
+            child: Text('ยกเลิก')
           ),
           TextButton(
             onPressed: () async {
@@ -527,14 +527,14 @@ class _Checkout extends State<Checkout>
                 exportQuantityTxtctl.text = '';
                 pallet = null;
                 print( res );
-                Navigator.pop( context, 'OK' );
+                Navigator.pop( context, 'ส่งข้อมูล' );
               }
               else
               {
                 print( 'pls scan again' );
               }
             }, 
-            child: Text('OK')
+            child: Text('ส่งข้อมูล')
           ),
         ],
       )
@@ -545,16 +545,16 @@ class _Checkout extends State<Checkout>
     style: ElevatedButton.styleFrom(
       primary: Colors.green,
     ),
-    child: Text( 'ส่งข้อมูล' ),
+    child: Text( 'เเก้ไขข้อมูล' ),
     onPressed: () => showDialog(
       context: context, 
       builder: ( BuildContext context ) => AlertDialog(
-        title: Text('test'),
-        content: Text('test'),
+        title: Text('เเก้ไขจำนวนสินค้าของ ' + productNameTxtctl.text ),
+        content: Text('จำนวน ' + exportQuantityTxtctl.text ),
         actions: [
           TextButton(
-            onPressed: () => Navigator.pop( context, 'Cancel' ), 
-            child: Text('Cancel')
+            onPressed: () => Navigator.pop( context, 'ยกเลิก' ), 
+            child: Text('ยกเลิก')
           ),
           TextButton(
             onPressed: () {
@@ -567,14 +567,14 @@ class _Checkout extends State<Checkout>
                 // exportQuantityTxtctl.text = '';
                 pallet = null;
                 print( res );
-                Navigator.pop( context, 'OK' );
+                Navigator.pop( context, 'เเก้ไขข้อมูล' );
               }
               else
               {
                 print( 'pls scan again' );
               }
             }, 
-            child: Text('OK')
+            child: Text( 'เเก้ไขข้อมูล')
           ),
         ],
       )
