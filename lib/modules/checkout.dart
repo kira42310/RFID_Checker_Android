@@ -57,7 +57,8 @@ class _Checkout extends State<Checkout>
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: ( eModeSwitch ) ? Text( 'Checkout - Edit mode' ) : Text( 'Checkout' ),
+          // title: ( eModeSwitch ) ? Text( 'Checkout - Edit mode' ) : Text( 'Checkout' ),
+          title: ( eModeSwitch ) ? Text( 'โหมดเเก้ไข' ) : Text( 'กลับโหมดปกติ' ),
           backgroundColor: ( eModeSwitch ) ? Colors.red : Colors.blue,
           actions: <Widget>[
             Padding(
@@ -66,20 +67,20 @@ class _Checkout extends State<Checkout>
                 onPressed: () => showDialog(
                   context: context, 
                   builder: ( BuildContext context ) => AlertDialog(
-                    title: Text( 'Edit mode switch' ),
+                    title: Text( 'เข้าสู่โหมดเเก้ไข' ),
                     actions: [
                       TextButton(
-                        onPressed: () => Navigator.pop( context, 'Cancel' ), 
-                        child: Text( 'Cancel' ),
+                        onPressed: () => Navigator.pop( context, 'ยกเลิก' ), 
+                        child: Text( 'ยกเลิก' ),
                       ),
                       TextButton(
                         onPressed: () {
                           setState(() {
                             eModeSwitch = !eModeSwitch;
                           });
-                          Navigator.pop( context, 'Ok' );
+                          Navigator.pop( context, 'ตกลง' );
                         }, 
-                        child: Text( 'Ok' ),
+                        child: Text( 'ตกลง' ),
                       )
                     ],
                   )
@@ -316,7 +317,8 @@ class _Checkout extends State<Checkout>
                   padding: EdgeInsets.all(20),
                   child: Column(
                     children: <Widget>[
-                      Text( 'Bluetooth Device' ),
+                      // Text( 'Bluetooth Device' ),
+                      Text( 'เชื่อมต่ออุปกรณ์ Bluetooth' ),
                       Container(
                         padding: EdgeInsets.fromLTRB( 0, 10, 0, 10),
                         child: ElevatedButton(
@@ -327,15 +329,15 @@ class _Checkout extends State<Checkout>
                             deviceList.addAll( await showDialog(
                               context: context, 
                               builder: ( BuildContext context ) =>
-                                FutureProgressDialog( bluSerialService.bluScan(), message: Text( 'Scanning' ) )
+                                FutureProgressDialog( bluSerialService.bluScan(), message: Text( 'ค้นหา' ) )
                             ));
                             setState(() {});
                           },
-                          child: Text('Scan'),
+                          child: Text('ค้นหา'),
                         )
                       ),
                       Expanded(
-                        child: ( deviceList.length > 0 ) ? listViewUI( deviceList ) : const Text( 'No devices found' ) ,
+                        child: ( deviceList.length > 0 ) ? listViewUI( deviceList ) : const Text( 'ไม่พบอุปกรณ์' ) ,
                       ),
                       Container(
                         padding: EdgeInsets.only( top: 10 ),
@@ -351,13 +353,13 @@ class _Checkout extends State<Checkout>
                                 await showDialog(
                                   context: context, 
                                   builder: ( BuildContext context ) =>
-                                    FutureProgressDialog( bluSerialService.bluDisconnect(), message: Text( 'Disconnecting' ))
+                                    FutureProgressDialog( bluSerialService.bluDisconnect(), message: Text( 'ยกเลิกการติดต่อ' ))
                                 );
                                 bluetoothCurrentDevice = null;
                                 deviceList.clear();
                                 setState(() {});
                               },
-                              child: Text('Disconnect'),
+                              child: Text('ยกเลิกการติดต่อ'),
                             ),
                             ElevatedButton(
                               style: ElevatedButton.styleFrom(
@@ -505,7 +507,7 @@ class _Checkout extends State<Checkout>
       context: context, 
       builder: ( BuildContext context ) => AlertDialog(
         title: Text('เบิกสินค้าจาก ' + productNameTxtctl.text ),
-        content: Text('จำนวน ' + productNameTxtctl.text ),
+        content: Text('จำนวน ' + exportQuantityTxtctl.text ),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop( context, 'ยกเลิก' ), 
