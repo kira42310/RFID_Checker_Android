@@ -503,7 +503,7 @@ class _Checkout extends State<Checkout>
       primary: Colors.green,
     ),
     child: Text( 'เบิก' ),
-    onPressed: () => showDialog(
+    onPressed: ( pallet != null ) ? () => showDialog(
       context: context, 
       builder: ( BuildContext context ) => AlertDialog(
         title: Text('เบิกสินค้าจาก ' + productNameTxtctl.text ),
@@ -540,7 +540,7 @@ class _Checkout extends State<Checkout>
           ),
         ],
       )
-    )
+    ) : null
   );
 
   Widget acceptBTNEMode( BuildContext context ) => ElevatedButton(
@@ -548,7 +548,7 @@ class _Checkout extends State<Checkout>
       primary: Colors.green,
     ),
     child: Text( 'เเก้ไขข้อมูล' ),
-    onPressed: () => showDialog(
+    onPressed: ( pallet != null ) ? () => showDialog(
       context: context, 
       builder: ( BuildContext context ) => AlertDialog(
         title: Text('เเก้ไขจำนวนสินค้าของ ' + productNameTxtctl.text ),
@@ -580,7 +580,7 @@ class _Checkout extends State<Checkout>
           ),
         ],
       )
-    )
+    ) : null
   );
 
 }
