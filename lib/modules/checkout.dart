@@ -203,6 +203,7 @@ class _Checkout extends State<Checkout>
       // productNameTxtctl.text = listProduct[ pallet!.lotID - 1 ];
       productNameTxtctl.text = pallet!.name;
       productCQuantityTxtctl.text = pallet!.quantity.toString();
+      setState(() {});
     });
   }
 
@@ -528,6 +529,7 @@ class _Checkout extends State<Checkout>
                 productCQuantityTxtctl.text = '';
                 exportQuantityTxtctl.text = '';
                 pallet = null;
+                setState(() {});
                 print( res );
                 Navigator.pop( context, 'ส่งข้อมูล' );
               }
@@ -568,6 +570,7 @@ class _Checkout extends State<Checkout>
                 productCQuantityTxtctl.text = '';
                 exportQuantityTxtctl.text = '';
                 pallet = null;
+                setState(() {});
                 print( res );
                 Navigator.pop( context, 'เเก้ไขข้อมูล' );
               }
