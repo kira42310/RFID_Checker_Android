@@ -58,7 +58,7 @@ class _Checkout extends State<Checkout>
     return Scaffold(
         appBar: AppBar(
           // title: ( eModeSwitch ) ? Text( 'Checkout - Edit mode' ) : Text( 'Checkout' ),
-          title: ( eModeSwitch ) ? Text( 'โหมดเเก้ไข' ) : Text( 'กลับโหมดปกติ' ),
+          title: ( eModeSwitch ) ? Text( 'โหมดเเก้ไข' ) : Text( 'เบิกสินค้า' ),
           backgroundColor: ( eModeSwitch ) ? Colors.red : Colors.blue,
           actions: <Widget>[
             Padding(
@@ -67,7 +67,7 @@ class _Checkout extends State<Checkout>
                 onPressed: () => showDialog(
                   context: context, 
                   builder: ( BuildContext context ) => AlertDialog(
-                    title: Text( 'เข้าสู่โหมดเเก้ไข' ),
+                    title: ( eModeSwitch ) ? Text( 'กลับสู่โหมดปกติ' ) : Text( 'เข้าสู่โหมดเเก้ไข' ) ,
                     actions: [
                       TextButton(
                         onPressed: () => Navigator.pop( context, 'ยกเลิก' ), 
@@ -278,7 +278,7 @@ class _Checkout extends State<Checkout>
       SizedBox(
         width: 150,
         height: 50,
-        child: acceptBTN( context ),
+        child: ( eModeSwitch ) ?  acceptBTNEMode( context ) : acceptBTN( context ),
       ),
       // SizedBox(
       //   width: 150,
@@ -502,7 +502,7 @@ class _Checkout extends State<Checkout>
     style: ElevatedButton.styleFrom(
       primary: Colors.green,
     ),
-    child: Text( 'ส่งข้อมูล' ),
+    child: Text( 'เบิก' ),
     onPressed: () => showDialog(
       context: context, 
       builder: ( BuildContext context ) => AlertDialog(
@@ -563,10 +563,10 @@ class _Checkout extends State<Checkout>
               if( pallet != null )
               {
                 final res = editPallet( pallet!.id.toString(), exportQuantityTxtctl.text, /*pallet!.locID.toString(),*/ pallet!.lotID.toString(), pallet!.state );
-                // rfidTxtctl.text = '';
-                // productNameTxtctl.text = '';
-                // productCQuantityTxtctl.text = '';
-                // exportQuantityTxtctl.text = '';
+                rfidTxtctl.text = '';
+                productNameTxtctl.text = '';
+                productCQuantityTxtctl.text = '';
+                exportQuantityTxtctl.text = '';
                 pallet = null;
                 print( res );
                 Navigator.pop( context, 'เเก้ไขข้อมูล' );

@@ -100,7 +100,7 @@ Future editPallet( String tagID, String quantity, String lotID, /*String locID,*
       'palletID': tagID,
       "quantity": quantity,
       "lotID": lotID,
-      // "locID": locID,
+      "locID": 'null',
       "state": state,
     }),
   );
