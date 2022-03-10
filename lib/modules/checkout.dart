@@ -564,7 +564,7 @@ class _Checkout extends State<Checkout>
             onPressed: () {
               if( pallet != null )
               {
-                final res = editPallet( pallet!.id.toString(), exportQuantityTxtctl.text, /*pallet!.locID.toString(),*/ pallet!.lotID.toString(), pallet!.state );
+                final res = editPallet( pallet!.id.toString(), exportQuantityTxtctl.text, );
                 rfidTxtctl.text = '';
                 productNameTxtctl.text = '';
                 productCQuantityTxtctl.text = '';
