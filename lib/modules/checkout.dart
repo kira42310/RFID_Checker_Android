@@ -152,7 +152,7 @@ class _Checkout extends State<Checkout>
                 textAlign: TextAlign.right,
                 decoration: InputDecoration(
                   border: UnderlineInputBorder(),
-                  labelText: 'ชื่อสินค้า',
+                  labelText: 'FG Code',
                   enabled: false,
                 ),
               ),
@@ -200,8 +200,7 @@ class _Checkout extends State<Checkout>
         builder: ( BuildContext context ) => 
           FutureProgressDialog( fetchPallet( rfidTxtctl.text ) )
       );
-      // productNameTxtctl.text = listProduct[ pallet!.lotID - 1 ];
-      productNameTxtctl.text = pallet!.name;
+      productNameTxtctl.text = pallet!.fg;
       productCQuantityTxtctl.text = pallet!.quantity.toString();
       setState(() {});
     });

@@ -6,60 +6,35 @@ import './config.dart';
 
 class Pallet
 {
-  // final int id;
-  // final String tagID;
-  // // final int locID;
-  // final int lotID;
-  // final String name;
-  // final int quantity;
-  // final String state;
-
   final int id;
   final String tagID;
   final String pl;
   final String fg;
   final String lot;
-  final DateTime exp;
   final int quantity;
   final String state;
 
   Pallet
   ({
-    // required this.id,
-    // required this.tagID,
-    // // required this.locID,
-    // required this.lotID,
-    // required this.name,
-    // required this.quantity,
-    // required this.state,
     required this.id,
     required this.tagID,
     required this.pl,
     required this.fg,
     required this.lot,
-    required this.exp,
     required this.quantity,
-    required this.state,
+    required this.state
   });
 
   factory Pallet.fromJson( Map<String, dynamic> json )
   {
     return Pallet(
-      // id: json[ 'id' ], 
-      // tagID: json[ 'tagID' ],
-      // // locID: json[ 'loc_warehouse_id' ],
-      // lotID: json[ 'lot_product_id' ],
-      // name: json[ 'name' ],
-      // quantity: json[ 'quantity' ],
-      // state: json[ 'state' ],
       id: json[ 'id' ], 
       tagID: json[ 'tagID' ],
       pl: json[ 'pallet_number' ],
       fg: json[ 'fg_code' ],
       lot: json[ 'lot' ],
-      exp: json[ 'exp' ],
       quantity: json[ 'quantity' ],
-      state: json[ 'state' ],
+      state: json[ 'state' ]
     );
   }
 }
